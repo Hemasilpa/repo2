@@ -29,7 +29,7 @@ pipeline {
 				
 			
 
-				echo "good afternoon"
+				echo "another version added is ${NEW_VERSION}"
 			  }
 
 			
