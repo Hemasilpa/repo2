@@ -2,8 +2,10 @@
 pipeline {
 
       agent any 
-	  
-	  stages {
+	environment {
+		NEW_VERSION == '1.2.1'
+	        }
+       stages {
 	  
 	      stage("build") {
           when {
@@ -14,7 +16,7 @@ pipeline {
 		  
 		        steps {
 
-				       echo "good morning"
+				echo "hello my groovy version is ${NEW_VERSION}"
 			        }
 				
 				}
