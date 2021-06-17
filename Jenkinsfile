@@ -2,6 +2,10 @@
 pipeline {
 
       agent any 
+      parameters {
+      //string(name: 'VERSION', defaultValue: '', description: 'version to deploy on prod')
+      choice(name: 'VERSION', choices: ['1.1', '1.2', '1.3'], description: '')
+      BooleanParam(name: 'executeTests', defaultValue: true, description: '')	
 	environment {
 		NEW_VERSION = '1.2.1'
 	        }
@@ -10,7 +14,7 @@ pipeline {
 	      stage("build") {
           when {
             expression {
-               BRANCH_NAME == 'Devlope'
+               params.executeTests
                       }
                 }  
 		  
